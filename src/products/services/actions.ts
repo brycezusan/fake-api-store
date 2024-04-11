@@ -1,5 +1,5 @@
 import { productsAPI } from "../api/productsApi";
-import { Product } from "../interfaces/product";
+import { DraftProduct, Product } from "../interfaces/product";
 
 interface GetProductsOptions {
   filterKey?: string;
@@ -20,3 +20,13 @@ export const getProduct = async ({ id }: GetProductsOptions) => {
   return data;
 };
 
+
+export const createProduct = async( product : DraftProduct)=>{
+  try {
+    const {data} =  await productsAPI.post<Product>(`/products`,product)
+    return data
+    
+  } catch (error) {
+    throw new Error("error al crear el producto")
+  }
+}

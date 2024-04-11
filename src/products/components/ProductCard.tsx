@@ -27,7 +27,7 @@ export const ProductCard = ({ product, fullDescription , prefetch }: ProductProp
           </p>
         </div>
         <Link 
-          onMouseEnter={()=>prefetch && prefetch(+product.id)}
+          onMouseEnter={()=>prefetch && prefetch(+product.id!)}
           to={`/product/${product.id}`}>
           <h3 className="font-black text-gray-800 md:text-2xl text-xl">
             {product.title}

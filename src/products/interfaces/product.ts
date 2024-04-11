@@ -1,5 +1,5 @@
 export interface Product {
-  id:          string;
+  id?:          string | number;
   title:       string;
   price:       number;
   description: string;
@@ -7,6 +7,8 @@ export interface Product {
   image:       string;
   rating?:      Rating;
 }
+
+export type DraftProduct= Omit<Product, "id" | "rating">
 
 
 export interface Rating {
